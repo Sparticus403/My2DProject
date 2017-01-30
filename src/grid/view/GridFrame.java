@@ -1,11 +1,12 @@
 package grid.view;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 import grid.controller.GridController;
+import java.awt.Dimension;
 
 public class GridFrame extends JFrame
 {
-	private GridFrame baseController;
+	private GridController baseController;
 	private GridPanel appPanel;
 	
 	public GridFrame(GridController baseController)
@@ -19,7 +20,11 @@ public class GridFrame extends JFrame
 	
 	private void setupFrame()
 	{
-		
+		this.setContentPane(appPanel);
+		this.setTitle("2D Grid");
+		this.setSize(new Dimension(900,600));
+		this.setResizable(false);
+		this.setVisible(true);
 	}
 	
 
