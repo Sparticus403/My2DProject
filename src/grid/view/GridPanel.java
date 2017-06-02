@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.table.*;
 import javax.swing.*;
 import grid.controller.GridController;
+import java.awt.event.*;
 
 public class GridPanel extends JPanel
 {
@@ -91,6 +92,13 @@ public class GridPanel extends JPanel
 	
 	private void setupListeners()
 	{
+		submitButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				baseController.updateThing(rowField.getText(), columnField.getText(), inputField.getText());
+			}
+		});
 		
 	}
 	

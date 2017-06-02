@@ -1,6 +1,9 @@
 package grid.controller;
 
 import grid.view.*;
+
+import javax.swing.JOptionPane;
+
 import grid.model.Things;
 
 public class GridController 
@@ -41,5 +44,27 @@ public class GridController
 	public GridFrame getFrame()
 	{
 		return appFrame;
+	}
+	
+	public void updateThing(String row, String col, String value)
+	{
+		if(isValid(row) && isValid(col) && isValid(value))
+		{
+			grid[Integer.parseInt(row)][Integer.parseInt(col)].setThingStuffLevel(Integer.parseInt(value));
+		}
+	}
+	
+	private boolean isValid(String temp)
+	{
+		try
+		{
+			Integer.parseInt(temp);
+			return true;
+		}
+		catch(NumberFormatException error)
+		{
+			JOptionPane.showMessageDialog(appFrame, "Use an Int");
+			return false;
+		}
 	}
 }
